@@ -90,6 +90,7 @@
     aspect-ratio: 1 / 1; background: #fff; overflow: hidden;
   }
   .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .5s ease; }
+  .thumb.fit img { object-fit: contain; object-position: center; padding: 28px 18px; }
   .thumb:hover img { transform: scale(1.03); }
   .thumb .num {
     position: absolute; top: 14px; left: 14px; background: rgba(255,253,249,.94); color: #2b211c;
@@ -158,7 +159,7 @@
   <header class="hero">
     <p class="eyebrow">Bliss Bath &amp; Kitchen · Logo Review</p>
     <h1>Finding the face of <em>Bliss</em></h1>
-    <p class="lede">Nine logo directions, each shown on light and dark backgrounds and in a real-world setting. Take your time, and mark the ones that feel right for the brand.</p>
+    <p class="lede">Thirteen logo directions, each shown on light and dark backgrounds and in a real-world setting. Take your time, and mark the ones that feel right for the brand.</p>
     <div class="rule"></div>
   </header>
 
@@ -171,6 +172,7 @@
   <nav class="jump" aria-label="Sections">
     <a href="#monograms">Monograms</a>
     <a href="#wordmarks">Wordmarks</a>
+    <a href="#lighting">Lighting &amp; Living</a>
     <a href="#boards">Brand boards</a>
   </nav>
 
@@ -210,14 +212,20 @@ const GROUPS = [
     { n: "05", name: "Gold Serif · Full Range", desc: "Metallic gold serif with “Bath · Kitchen · Appliance · Home”, covering the full product range.", imgs: ["15"], sw: ["#9a7426", "#d3a53d", "#ffffff"] },
     { n: "06", name: "Gold Script", desc: "Hand-lettered “BlissBath” script with “& Kitchen” in serif. Expressive and celebratory.", imgs: ["16"], sw: ["#9f7430", "#e2b964", "#ffffff"] },
   ]},
+  { id: "lighting", title: "Lighting &amp; Living", intro: "New directions that bring in the full range, including lighting and furniture, by building a pendant lamp, chair or flowing line into the letters.", items: [
+    { n: "07", name: "Pendant Light Serif", desc: "A bronze pendant lamp hangs over the I and lights it up, with a soft wave through the B.", imgs: ["lighting-1"], sw: ["#eae0d4", "#2b2622", "#b08a5a"], bg: "#eae0d4" },
+    { n: "08", name: "Arc Light · Gold on Black", desc: "Fine gold letters under an arched pendant light, with the tagline “Beautiful spaces. Everyday.”", imgs: ["lighting-2"], sw: ["#1e1a16", "#c9a46e", "#f3e3c3"], bg: "#392f25" },
+    { n: "09", name: "Living Room B", desc: "A bold B with a lamp and armchair set inside it, plus a small gold leaf. Warm and homely.", imgs: ["lighting-3"], sw: ["#cbc0b3", "#1f1c1a", "#a88a5c"], bg: "#cbc0b3" },
+    { n: "10", name: "Flowing L Wordmark", desc: "An elegant serif where the L flows into a soft wave, like water. Clean and understated.", imgs: ["lighting-4"], sw: ["#f0e8e2", "#1f1c1a"], bg: "#f0e8e2" },
+    { n: "11", name: "Lamp & Chair B", desc: "A fine-line B drawn with a pendant lamp and a lounge chair, with the tagline “Curated for a Better Home”.", imgs: ["lighting-5"], sw: ["#b2a28f", "#2b2320", "#8a3d2a"], bg: "#b2a28f" },
+  ]},
   { id: "boards", title: "Brand boards", intro: "Complete identity concepts showing logo versions, colours, fonts and the logo on a storefront, packaging, website and bags.", items: [
-    { n: "07", name: "Bronze B Identity", desc: "A sculpted bronze B with a wide sans-serif name. Includes a stacked version, app icon and full palette.", imgs: ["logo-variation1"], sw: ["#fdf8f1", "#b7a899", "#2e2e2e", "#c9a27e"] },
-    { n: "08", name: "House B Identity", desc: "A B that forms a house roofline, for homes and spaces. Includes a round seal badge and full palette.", imgs: ["logo-variation2"], sw: ["#f8f5ef", "#d9c8b5", "#2e2e2e", "#c9a46a"] },
-    { n: "09", name: "Serif Wordmark Identity", desc: "Option 05’s wordmark built into a full system in rich Bliss Brown, with seal and reverse versions.", imgs: ["mockup-logo-variation"], sw: ["#f7f4ed", "#d9c8b5", "#291b0b", "#c9a66a"] },
+    { n: "12", name: "House B Identity", desc: "A B that forms a house roofline, for homes and spaces. Includes a round seal badge and full palette.", imgs: ["logo-variation2"], sw: ["#f8f5ef", "#d9c8b5", "#2e2e2e", "#c9a46a"] },
+    { n: "13", name: "Serif Wordmark Identity", desc: "Option 05’s wordmark built into a full system in rich Bliss Brown, with seal and reverse versions.", imgs: ["mockup-logo-variation"], sw: ["#f7f4ed", "#d9c8b5", "#291b0b", "#c9a66a"] },
   ]},
 ];
 
-const KEY = "bliss-logo-review-v2";
+const KEY = "bliss-logo-review-v3";
 let state = { picks: {}, notes: {} };
 try { const s = JSON.parse(localStorage.getItem(KEY)); if (s) state = Object.assign(state, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
@@ -232,7 +240,7 @@ app.innerHTML = GROUPS.map(g => `
     <div class="grid">
       ${g.items.map(it => `
         <article class="card" data-n="${it.n}">
-          <button class="thumb" type="button" data-open="${it.n}" aria-label="View option ${it.n}, ${esc(it.name)}">
+          <button class="thumb${it.bg ? " fit" : ""}" type="button" data-open="${it.n}"${it.bg ? ` style="background:${it.bg}"` : ""} aria-label="View option ${it.n}, ${esc(it.name)}">
             <img src="img/thumb/${it.imgs[0]}.jpg" alt="Option ${it.n}: ${esc(it.name)} logo" loading="lazy">
             <span class="num">OPTION ${it.n}</span>
             ${it.imgs.length > 1 ? `<span class="count">${it.imgs.length} colourways</span>` : ""}
