@@ -133,6 +133,7 @@
   .bar .txt small { display: block; opacity: .7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .bar .btn { color: var(--bg); border-color: rgba(255,255,255,.25); white-space: nowrap; }
   :root[data-theme="dark"] .bar .btn { border-color: rgba(0,0,0,.25); }
+  @media (max-width: 480px) { .bar { gap: 8px; padding-left: 16px; } .bar .btn { padding: 11px 12px; letter-spacing: .06em; } }
   .bar .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 
   /* Lightbox */
@@ -157,7 +158,7 @@
   <header class="hero">
     <p class="eyebrow">Bliss Bath &amp; Kitchen · Logo Review</p>
     <h1>Finding the face of <em>Bliss</em></h1>
-    <p class="lede">Fifteen logo directions, each shown on light and dark backgrounds and in a real-world setting. Take your time, and mark the ones that feel right for the brand.</p>
+    <p class="lede">Nine logo directions, each shown on light and dark backgrounds and in a real-world setting. Take your time, and mark the ones that feel right for the brand.</p>
     <div class="rule"></div>
   </header>
 
@@ -179,7 +180,7 @@
 </div>
 
 <div class="bar" role="region" aria-label="Your shortlist">
-  <div class="txt"><b id="barCount">No options shortlisted yet</b><small id="barList">Press “Shortlist” on the logos you like</small></div>
+  <div class="txt"><b id="barCount">No picks yet</b><small id="barList">Press “Shortlist” on the logos you like</small></div>
   <button class="btn" id="clearBtn" type="button">Clear</button>
   <button class="btn primary" id="copyBtn" type="button">Copy feedback</button>
 </div>
@@ -200,29 +201,23 @@
 <script>
 const GROUPS = [
   { id: "monograms", title: "Monograms", intro: "A B-symbol paired with the name. A symbol works on its own too, for signage, social media and the website icon.", items: [
-    { n: "01", name: "Linework Monogram", desc: "Two outlined Bs layered together, set in soft sage. Calm, fresh and modern.", imgs: ["1"], sw: ["#8a957c", "#ffffff"] },
-    { n: "02", name: "Interlocked BB", desc: "Two Bs mirrored and joined in a warm bronze gradient over deep chocolate. Premium, suits foil printing.", imgs: ["2"], sw: ["#4d362f", "#b89a86", "#e9b995"] },
-    { n: "03", name: "Interlocked BB · Droplet", desc: "Option 02 with small droplet shapes in the centre, a nod to water, bath and flow.", imgs: ["3"], sw: ["#4d362f", "#b89a86", "#ffffff"] },
-    { n: "04", name: "Butterfly BB", desc: "Two Bs mirrored into a butterfly shape, with a refined “BlissBath” wordmark. Soft and boutique.", imgs: ["4"], sw: ["#4a342d", "#e7e0d5"] },
-    { n: "05", name: "Gold Block Monogram", desc: "A solid gold B with a chevron cut. Bold and architectural, paired with a classic serif.", imgs: ["5"], sw: ["#a8894f", "#dcd4c7", "#2b2826"] },
-    { n: "06", name: "Sage Folded B", desc: "A solid B with a folded, geometric cut, set in sage green. Striking on lightbox signage.", imgs: ["11"], sw: ["#84976c", "#ffffff"] },
-    { n: "07", name: "Split-Line B", desc: "A heavy geometric B with an inner line, set beside a clean sans-serif name. Strong, easy to read.", imgs: ["12"], sw: ["#4f3730", "#ffffff"] },
-    { n: "08", name: "Flowing b Loop", desc: "A lowercase b drawn as one flowing line, like water, next to an elegant serif name.", imgs: ["14"], sw: ["#b39580", "#4a3a31", "#e7e0d5"] },
+    { n: "01", name: "Sage Folded B", desc: "A solid B with a folded, geometric cut, set in sage green. Striking on lightbox signage.", imgs: ["11"], sw: ["#84976c", "#ffffff"] },
+    { n: "02", name: "Flowing b Loop", desc: "A lowercase b drawn as one flowing line, like water, next to an elegant serif name.", imgs: ["14"], sw: ["#b39580", "#4a3a31", "#e7e0d5"] },
   ]},
   { id: "wordmarks", title: "Wordmarks", intro: "The name itself becomes the logo. Timeless and understated, with the type doing all the work.", items: [
-    { n: "09", name: "Stacked Editorial Serif", desc: "A tall B shared by “Bliss” and “Bath”, above an ampersand divider. Shown in four colourways.", imgs: ["6", "7", "8", "9"], sw: ["#8e7d69", "#4d362f", "#e7e0d5", "#89957c"] },
-    { n: "10", name: "Classic Serif Wordmark", desc: "BLISS in a high-contrast serif with a fine gold rule and a spaced tagline. Quietly luxurious.", imgs: ["10"], sw: ["#111111", "#c9a97a", "#ffffff"] },
-    { n: "11", name: "Gold Serif · Full Range", desc: "Metallic gold serif with “Bath · Kitchen · Appliance · Home”, covering the full product range.", imgs: ["15"], sw: ["#9a7426", "#d3a53d", "#ffffff"] },
-    { n: "12", name: "Gold Script", desc: "Hand-lettered “BlissBath” script with “& Kitchen” in serif. Expressive and celebratory.", imgs: ["16"], sw: ["#9f7430", "#e2b964", "#ffffff"] },
+    { n: "03", name: "Stacked Editorial Serif", desc: "A tall B shared by “Bliss” and “Bath”, above an ampersand divider. Shown in four colourways.", imgs: ["6", "7", "8", "9"], sw: ["#8e7d69", "#4d362f", "#e7e0d5", "#89957c"] },
+    { n: "04", name: "Classic Serif Wordmark", desc: "BLISS in a high-contrast serif with a fine gold rule and a spaced tagline. Quietly luxurious.", imgs: ["10"], sw: ["#111111", "#c9a97a", "#ffffff"] },
+    { n: "05", name: "Gold Serif · Full Range", desc: "Metallic gold serif with “Bath · Kitchen · Appliance · Home”, covering the full product range.", imgs: ["15"], sw: ["#9a7426", "#d3a53d", "#ffffff"] },
+    { n: "06", name: "Gold Script", desc: "Hand-lettered “BlissBath” script with “& Kitchen” in serif. Expressive and celebratory.", imgs: ["16"], sw: ["#9f7430", "#e2b964", "#ffffff"] },
   ]},
   { id: "boards", title: "Brand boards", intro: "Complete identity concepts showing logo versions, colours, fonts and the logo on a storefront, packaging, website and bags.", items: [
-    { n: "13", name: "Bronze B Identity", desc: "A sculpted bronze B with a wide sans-serif name. Includes a stacked version, app icon and full palette.", imgs: ["logo-variation1"], sw: ["#fdf8f1", "#b7a899", "#2e2e2e", "#c9a27e"] },
-    { n: "14", name: "House B Identity", desc: "A B that forms a house roofline, for homes and spaces. Includes a round seal badge and full palette.", imgs: ["logo-variation2"], sw: ["#f8f5ef", "#d9c8b5", "#2e2e2e", "#c9a46a"] },
-    { n: "15", name: "Serif Wordmark Identity", desc: "Option 11’s wordmark built into a full system in rich Bliss Brown, with seal and reverse versions.", imgs: ["mockup-logo-variation"], sw: ["#f7f4ed", "#d9c8b5", "#291b0b", "#c9a66a"] },
+    { n: "07", name: "Bronze B Identity", desc: "A sculpted bronze B with a wide sans-serif name. Includes a stacked version, app icon and full palette.", imgs: ["logo-variation1"], sw: ["#fdf8f1", "#b7a899", "#2e2e2e", "#c9a27e"] },
+    { n: "08", name: "House B Identity", desc: "A B that forms a house roofline, for homes and spaces. Includes a round seal badge and full palette.", imgs: ["logo-variation2"], sw: ["#f8f5ef", "#d9c8b5", "#2e2e2e", "#c9a46a"] },
+    { n: "09", name: "Serif Wordmark Identity", desc: "Option 05’s wordmark built into a full system in rich Bliss Brown, with seal and reverse versions.", imgs: ["mockup-logo-variation"], sw: ["#f7f4ed", "#d9c8b5", "#291b0b", "#c9a66a"] },
   ]},
 ];
 
-const KEY = "bliss-logo-review-v1";
+const KEY = "bliss-logo-review-v2";
 let state = { picks: {}, notes: {} };
 try { const s = JSON.parse(localStorage.getItem(KEY)); if (s) state = Object.assign(state, s); } catch (e) {}
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
@@ -265,8 +260,8 @@ function render() {
   });
   const picked = ALL.filter(i => state.picks[i.n]);
   document.getElementById("barCount").textContent = picked.length
-    ? `${picked.length} option${picked.length > 1 ? "s" : ""} shortlisted`
-    : "No options shortlisted yet";
+    ? `${picked.length} shortlisted`
+    : "No picks yet";
   document.getElementById("barList").textContent = picked.length
     ? picked.map(i => `${i.n} ${i.name}`).join(" · ")
     : "Press “Shortlist” on the logos you like";
