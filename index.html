@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bliss Logo Review</title>
+<meta name="description" content="Logo concepts for Bliss Bath &amp; Kitchen, prepared for client review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f3ec;
+    --surface: #fffdf9;
+    --ink: #2b211c;
+    --muted: #7a6d63;
+    --line: #e4dccf;
+    --accent: #a3784e;
+    --accent-ink: #fff;
+    --shadow: 0 1px 2px rgba(43,33,28,.05), 0 8px 24px rgba(43,33,28,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a1512; --surface: #241d19; --ink: #f1e9df; --muted: #b3a597;
+      --line: #3a302a; --accent: #c99a6a; --accent-ink: #1a1512;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a1512; --surface: #241d19; --ink: #f1e9df; --muted: #b3a597;
+    --line: #3a302a; --accent: #c99a6a; --accent-ink: #1a1512;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 300 16px/1.6 "Jost", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 96px;
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 720px) { .wrap { padding: 0 40px; } }
+
+  header.hero { padding: 72px 0 40px; text-align: center; }
+  .eyebrow { font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+  h1 {
+    font: 400 clamp(40px, 7vw, 76px)/1.02 "Cormorant Garamond", serif;
+    margin: 0; letter-spacing: .01em;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede { max-width: 620px; margin: 22px auto 0; color: var(--muted); font-size: 17px; }
+  .rule { width: 56px; height: 1px; background: var(--accent); margin: 32px auto 0; }
+
+  .how {
+    display: grid; gap: 1px; background: var(--line);
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    margin: 8px 0 64px;
+  }
+  @media (min-width: 720px) { .how { grid-template-columns: repeat(3, 1fr); } }
+  .how div { background: var(--surface); padding: 22px 24px; }
+  .how b { display: block; font: 500 13px/1 "Jost"; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .how p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  nav.jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 48px; }
+  nav.jump a {
+    font-size: 13px; letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+    color: var(--ink); border: 1px solid var(--line); padding: 9px 16px; border-radius: 999px;
+  }
+  nav.jump a:hover { border-color: var(--accent); color: var(--accent); }
+
+  section.group { margin: 0 0 80px; scroll-margin-top: 24px; }
+  .group-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; border-bottom: 1px solid var(--line); padding-bottom: 14px; margin-bottom: 28px; }
+  h2 { font: 400 clamp(28px, 4vw, 40px)/1.1 "Cormorant Garamond", serif; margin: 0; }
+  .group-head p { margin: 0; color: var(--muted); font-size: 15px; max-width: 520px; }
+
+  .grid { display: grid; gap: 28px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column;
+    transition: border-color .2s, transform .2s;
+  }
+  .card.picked { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow); }
+  .thumb {
+    position: relative; display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in;
+    aspect-ratio: 1 / 1; background: #fff; overflow: hidden;
+  }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .5s ease; }
+  .thumb:hover img { transform: scale(1.03); }
+  .thumb .num {
+    position: absolute; top: 14px; left: 14px; background: rgba(255,253,249,.94); color: #2b211c;
+    font: 500 12px/1 "Jost"; letter-spacing: .16em; padding: 7px 10px; border-radius: 999px;
+  }
+  .thumb .count {
+    position: absolute; bottom: 14px; right: 14px; background: rgba(43,33,28,.78); color: #fff;
+    font: 400 12px/1 "Jost"; letter-spacing: .06em; padding: 7px 10px; border-radius: 999px;
+  }
+  .body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  h3 { font: 500 24px/1.15 "Cormorant Garamond", serif; margin: 0; }
+  .body p { margin: 0; color: var(--muted); font-size: 15px; }
+  .swatches { display: flex; gap: 6px; margin-top: 2px; }
+  .swatches span { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(0,0,0,.1); }
+  .actions { display: flex; gap: 10px; margin-top: auto; padding-top: 8px; }
+  .btn {
+    font: 400 13px/1 "Jost"; letter-spacing: .1em; text-transform: uppercase;
+    border: 1px solid var(--line); background: transparent; color: var(--ink);
+    padding: 11px 14px; border-radius: 999px; cursor: pointer; min-height: 40px; white-space: nowrap;
+  }
+  .btn:hover { border-color: var(--accent); }
+  .btn.pick[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .note {
+    width: 100%; font: 300 15px/1.5 "Jost"; color: var(--ink); background: var(--bg);
+    border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; resize: vertical; min-height: 44px;
+  }
+  .note:focus, .btn:focus-visible, .thumb:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  footer { text-align: center; color: var(--muted); font-size: 14px; padding: 16px 0 40px; }
+
+  /* Shortlist bar */
+  .bar {
+    position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
+    width: calc(100% - 32px); max-width: 760px;
+    background: var(--ink); color: var(--bg); border-radius: 16px;
+    display: flex; align-items: center; gap: 12px; padding: 12px 12px 12px 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.25); z-index: 20;
+  }
+  .bar .txt { flex: 1; font-size: 14px; min-width: 0; }
+  .bar .txt b { font-weight: 500; }
+  .bar .txt small { display: block; opacity: .7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar .btn { color: var(--bg); border-color: rgba(255,255,255,.25); white-space: nowrap; }
+  :root[data-theme="dark"] .bar .btn { border-color: rgba(0,0,0,.25); }
+  .bar .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
+  /* Lightbox */
+  .lb { position: fixed; inset: 0; background: rgba(20,15,12,.94); display: none; z-index: 50; }
+  .lb.open { display: flex; flex-direction: column; }
+  .lb-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: #f1e9df; padding: 14px 16px; }
+  .lb-top .t { font: 400 20px/1.2 "Cormorant Garamond", serif; }
+  .lb-top .t small { display: block; font: 300 13px/1.4 "Jost"; opacity: .7; letter-spacing: .04em; }
+  .lb-stage { flex: 1; overflow: auto; display: flex; justify-content: center; align-items: flex-start; padding: 0 16px 16px; }
+  .lb-stage img { max-width: min(100%, 1100px); height: auto; display: block; border-radius: 6px; }
+  .lb .ctl { background: rgba(255,255,255,.1); color: #fff; border: 0; border-radius: 999px; min-width: 44px; height: 44px; font-size: 18px; cursor: pointer; padding: 0 14px; font-family: "Jost"; }
+  .lb .ctl:hover { background: rgba(255,255,255,.2); }
+  .lb-ctls { display: flex; gap: 8px; }
+
+  .toast { position: fixed; left: 50%; bottom: 100px; transform: translateX(-50%); background: var(--accent); color: var(--accent-ink); padding: 10px 18px; border-radius: 999px; font-size: 14px; opacity: 0; transition: opacity .25s; pointer-events: none; z-index: 60; }
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Bliss Bath &amp; Kitchen · Logo Review</p>
+    <h1>Finding the face of <em>Bliss</em></h1>
+    <p class="lede">Fifteen logo directions, each shown on light and dark backgrounds and in a real-world setting. Take your time, and mark the ones that feel right for the brand.</p>
+    <div class="rule"></div>
+  </header>
+
+  <div class="how">
+    <div><b>1 · Browse</b><p>Tap any image to see the full presentation: colourways, backgrounds and mockups.</p></div>
+    <div><b>2 · Shortlist</b><p>Press “Shortlist” on the options you like and add a note if something should change.</p></div>
+    <div><b>3 · Send</b><p>Press “Copy feedback” at the bottom and paste it into WhatsApp or email to us.</p></div>
+  </div>
+
+  <nav class="jump" aria-label="Sections">
+    <a href="#monograms">Monograms</a>
+    <a href="#wordmarks">Wordmarks</a>
+    <a href="#boards">Brand boards</a>
+  </nav>
+
+  <main id="app"></main>
+
+  <footer>Prepared for Bliss Bath &amp; Kitchen · blissbathandkitchen.com · Concepts for review only</footer>
+</div>
+
+<div class="bar" role="region" aria-label="Your shortlist">
+  <div class="txt"><b id="barCount">No options shortlisted yet</b><small id="barList">Press “Shortlist” on the logos you like</small></div>
+  <button class="btn" id="clearBtn" type="button">Clear</button>
+  <button class="btn primary" id="copyBtn" type="button">Copy feedback</button>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Logo preview">
+  <div class="lb-top">
+    <div class="t" id="lbTitle"></div>
+    <div class="lb-ctls">
+      <button class="ctl" id="lbPrev" type="button" aria-label="Previous">‹</button>
+      <button class="ctl" id="lbNext" type="button" aria-label="Next">›</button>
+      <button class="ctl" id="lbClose" type="button" aria-label="Close">✕</button>
+    </div>
+  </div>
+  <div class="lb-stage" id="lbStage"><img id="lbImg" alt=""></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const GROUPS = [
+  { id: "monograms", title: "Monograms", intro: "A B-symbol paired with the name. A symbol works on its own too, for signage, social media and the website icon.", items: [
+    { n: "01", name: "Linework Monogram", desc: "Two outlined Bs layered together, set in soft sage. Calm, fresh and modern.", imgs: ["1"], sw: ["#8a957c", "#ffffff"] },
+    { n: "02", name: "Interlocked BB", desc: "Two Bs mirrored and joined in a warm bronze gradient over deep chocolate. Premium, suits foil printing.", imgs: ["2"], sw: ["#4d362f", "#b89a86", "#e9b995"] },
+    { n: "03", name: "Interlocked BB · Droplet", desc: "Option 02 with small droplet shapes in the centre, a nod to water, bath and flow.", imgs: ["3"], sw: ["#4d362f", "#b89a86", "#ffffff"] },
+    { n: "04", name: "Butterfly BB", desc: "Two Bs mirrored into a butterfly shape, with a refined “BlissBath” wordmark. Soft and boutique.", imgs: ["4"], sw: ["#4a342d", "#e7e0d5"] },
+    { n: "05", name: "Gold Block Monogram", desc: "A solid gold B with a chevron cut. Bold and architectural, paired with a classic serif.", imgs: ["5"], sw: ["#a8894f", "#dcd4c7", "#2b2826"] },
+    { n: "06", name: "Sage Folded B", desc: "A solid B with a folded, geometric cut, set in sage green. Striking on lightbox signage.", imgs: ["11"], sw: ["#84976c", "#ffffff"] },
+    { n: "07", name: "Split-Line B", desc: "A heavy geometric B with an inner line, set beside a clean sans-serif name. Strong, easy to read.", imgs: ["12"], sw: ["#4f3730", "#ffffff"] },
+    { n: "08", name: "Flowing b Loop", desc: "A lowercase b drawn as one flowing line, like water, next to an elegant serif name.", imgs: ["14"], sw: ["#b39580", "#4a3a31", "#e7e0d5"] },
+  ]},
+  { id: "wordmarks", title: "Wordmarks", intro: "The name itself becomes the logo. Timeless and understated, with the type doing all the work.", items: [
+    { n: "09", name: "Stacked Editorial Serif", desc: "A tall B shared by “Bliss” and “Bath”, above an ampersand divider. Shown in four colourways.", imgs: ["6", "7", "8", "9"], sw: ["#8e7d69", "#4d362f", "#e7e0d5", "#89957c"] },
+    { n: "10", name: "Classic Serif Wordmark", desc: "BLISS in a high-contrast serif with a fine gold rule and a spaced tagline. Quietly luxurious.", imgs: ["10"], sw: ["#111111", "#c9a97a", "#ffffff"] },
+    { n: "11", name: "Gold Serif · Full Range", desc: "Metallic gold serif with “Bath · Kitchen · Appliance · Home”, covering the full product range.", imgs: ["15"], sw: ["#9a7426", "#d3a53d", "#ffffff"] },
+    { n: "12", name: "Gold Script", desc: "Hand-lettered “BlissBath” script with “& Kitchen” in serif. Expressive and celebratory.", imgs: ["16"], sw: ["#9f7430", "#e2b964", "#ffffff"] },
+  ]},
+  { id: "boards", title: "Brand boards", intro: "Complete identity concepts showing logo versions, colours, fonts and the logo on a storefront, packaging, website and bags.", items: [
+    { n: "13", name: "Bronze B Identity", desc: "A sculpted bronze B with a wide sans-serif name. Includes a stacked version, app icon and full palette.", imgs: ["logo-variation1"], sw: ["#fdf8f1", "#b7a899", "#2e2e2e", "#c9a27e"] },
+    { n: "14", name: "House B Identity", desc: "A B that forms a house roofline, for homes and spaces. Includes a round seal badge and full palette.", imgs: ["logo-variation2"], sw: ["#f8f5ef", "#d9c8b5", "#2e2e2e", "#c9a46a"] },
+    { n: "15", name: "Serif Wordmark Identity", desc: "Option 11’s wordmark built into a full system in rich Bliss Brown, with seal and reverse versions.", imgs: ["mockup-logo-variation"], sw: ["#f7f4ed", "#d9c8b5", "#291b0b", "#c9a66a"] },
+  ]},
+];
+
+const KEY = "bliss-logo-review-v1";
+let state = { picks: {}, notes: {} };
+try { const s = JSON.parse(localStorage.getItem(KEY)); if (s) state = Object.assign(state, s); } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+
+const ALL = GROUPS.flatMap(g => g.items);
+const app = document.getElementById("app");
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+app.innerHTML = GROUPS.map(g => `
+  <section class="group" id="${g.id}">
+    <div class="group-head"><h2>${g.title}</h2><p>${g.intro}</p></div>
+    <div class="grid">
+      ${g.items.map(it => `
+        <article class="card" data-n="${it.n}">
+          <button class="thumb" type="button" data-open="${it.n}" aria-label="View option ${it.n}, ${esc(it.name)}">
+            <img src="img/thumb/${it.imgs[0]}.jpg" alt="Option ${it.n}: ${esc(it.name)} logo" loading="lazy">
+            <span class="num">OPTION ${it.n}</span>
+            ${it.imgs.length > 1 ? `<span class="count">${it.imgs.length} colourways</span>` : ""}
+          </button>
+          <div class="body">
+            <h3>${esc(it.name)}</h3>
+            <p>${esc(it.desc)}</p>
+            <div class="swatches" aria-hidden="true">${it.sw.map(c => `<span style="background:${c}"></span>`).join("")}</div>
+            <textarea class="note" rows="1" data-note="${it.n}" placeholder="Your thoughts on option ${it.n} (optional)" aria-label="Note for option ${it.n}"></textarea>
+            <div class="actions">
+              <button class="btn pick" type="button" data-pick="${it.n}" aria-pressed="false">♡ Shortlist</button>
+              <button class="btn" type="button" data-open="${it.n}">View full</button>
+            </div>
+          </div>
+        </article>`).join("")}
+    </div>
+  </section>`).join("");
+
+function render() {
+  document.querySelectorAll("[data-pick]").forEach(b => {
+    const on = !!state.picks[b.dataset.pick];
+    b.setAttribute("aria-pressed", on);
+    b.textContent = on ? "♥ Shortlisted" : "♡ Shortlist";
+    b.closest(".card").classList.toggle("picked", on);
+  });
+  const picked = ALL.filter(i => state.picks[i.n]);
+  document.getElementById("barCount").textContent = picked.length
+    ? `${picked.length} option${picked.length > 1 ? "s" : ""} shortlisted`
+    : "No options shortlisted yet";
+  document.getElementById("barList").textContent = picked.length
+    ? picked.map(i => `${i.n} ${i.name}`).join(" · ")
+    : "Press “Shortlist” on the logos you like";
+}
+document.querySelectorAll("[data-note]").forEach(t => { t.value = state.notes[t.dataset.note] || ""; });
+
+app.addEventListener("click", e => {
+  const p = e.target.closest("[data-pick]");
+  if (p) { const n = p.dataset.pick; state.picks[n] = !state.picks[n]; if (!state.picks[n]) delete state.picks[n]; save(); render(); return; }
+  const o = e.target.closest("[data-open]");
+  if (o) openLb(o.dataset.open, 0);
+});
+app.addEventListener("input", e => {
+  const t = e.target.closest("[data-note]");
+  if (t) { state.notes[t.dataset.note] = t.value; if (!t.value) delete state.notes[t.dataset.note]; save(); }
+});
+
+function toast(msg) {
+  const el = document.getElementById("toast"); el.textContent = msg; el.classList.add("show");
+  clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("show"), 2200);
+}
+document.getElementById("clearBtn").onclick = () => {
+  if (!Object.keys(state.picks).length && !Object.keys(state.notes).length) return;
+  if (!confirm("Clear your shortlist and notes?")) return;
+  state = { picks: {}, notes: {} }; save();
+  document.querySelectorAll("[data-note]").forEach(t => t.value = ""); render();
+};
+document.getElementById("copyBtn").onclick = async () => {
+  const picked = ALL.filter(i => state.picks[i.n]);
+  const noted = ALL.filter(i => state.notes[i.n] && !state.picks[i.n]);
+  if (!picked.length && !noted.length) { toast("Shortlist an option or add a note first"); return; }
+  let txt = "Bliss Bath & Kitchen · Logo feedback\n\n";
+  if (picked.length) txt += "Shortlisted:\n" + picked.map(i => `• Option ${i.n} ${i.name}${state.notes[i.n] ? "\n   Note: " + state.notes[i.n].trim() : ""}`).join("\n") + "\n";
+  if (noted.length) txt += "\nOther notes:\n" + noted.map(i => `• Option ${i.n} ${i.name}: ${state.notes[i.n].trim()}`).join("\n") + "\n";
+  try { await navigator.clipboard.writeText(txt); toast("Feedback copied. Paste it into WhatsApp or email"); }
+  catch (e) { prompt("Copy your feedback:", txt); }
+};
+
+/* Lightbox: steps through every image of every option */
+const FLAT = ALL.flatMap(it => it.imgs.map((src, k) => ({ it, src, k })));
+const lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg");
+let cur = 0, lastFocus = null;
+function show(i) {
+  cur = (i + FLAT.length) % FLAT.length;
+  const { it, src, k } = FLAT[cur];
+  lbImg.src = `img/full/${src}.jpg`;
+  lbImg.alt = `Option ${it.n}: ${it.name}`;
+  document.getElementById("lbTitle").innerHTML = `Option ${it.n} · ${esc(it.name)}<small>${it.imgs.length > 1 ? `Colourway ${k + 1} of ${it.imgs.length} · ` : ""}${cur + 1} / ${FLAT.length}</small>`;
+  document.getElementById("lbStage").scrollTop = 0;
+}
+function openLb(n, k) {
+  lastFocus = document.activeElement;
+  show(FLAT.findIndex(f => f.it.n === n && f.k === k));
+  lb.classList.add("open"); document.body.style.overflow = "hidden";
+  document.getElementById("lbClose").focus();
+}
+function closeLb() { lb.classList.remove("open"); document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
+document.getElementById("lbPrev").onclick = () => show(cur - 1);
+document.getElementById("lbNext").onclick = () => show(cur + 1);
+document.getElementById("lbClose").onclick = closeLb;
+lb.addEventListener("click", e => { if (e.target.id === "lbStage") closeLb(); });
+document.addEventListener("keydown", e => {
+  if (!lb.classList.contains("open")) return;
+  if (e.key === "Escape") closeLb();
+  if (e.key === "ArrowRight") show(cur + 1);
+  if (e.key === "ArrowLeft") show(cur - 1);
+});
+
+render();
+</script>
+</body>
+</html>
